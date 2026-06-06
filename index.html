@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ko - 한국식 바둑 AI</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Ko - 한국식 바둑 AI</h1>
+            <div class="game-status" id="gameStatus">게임 대기 중...</div>
+        </div>
+
+        <div class="main-content">
+            <!-- 게임 시작 패널 -->
+            <div class="start-panel" id="startPanel">
+                <h2>색 선택</h2>
+                <button class="color-btn black-btn" onclick="startGame('black')">
+                    ⚫ 흑(흑이 먼저)
+                </button>
+                <button class="color-btn white-btn" onclick="startGame('white')">
+                    ⚪ 백
+                </button>
+            </div>
+
+            <!-- 게임 보드 -->
+            <div class="game-container" id="gameContainer" style="display:none;">
+                <div class="board-section">
+                    <canvas id="badukBoard" width="570" height="570"></canvas>
+                    <div class="ai-move-display" id="aiMoveDisplay">AI 수: -</div>
+                </div>
+
+                <div class="control-panel">
+                    <div class="info-section">
+                        <div class="turn-info" id="turnInfo">흑의 차례</div>
+                        <div class="player-info" id="playerColor">플레이어: 흑</div>
+                        <div class="score-info" id="scoreInfo">흑: 0 | 백: 0</div>
+                    </div>
+
+                    <div class="feedback-section">
+                        <label>AI 수 평가:</label>
+                        <button class="feedback-btn good-btn" onclick="rateMoveGood()" id="goodBtn">👍 좋아요</button>
+                        <button class="feedback-btn bad-btn" onclick="rateMoveBad()" id="badBtn">👎 싫어요</button>
+                    </div>
+
+                    <div class="action-section">
+                        <button class="action-btn" onclick="calculateScore()">📊 계가하기</button>
+                        <button class="action-btn resign-btn" onclick="resign()">🏳️ 기권</button>
+                        <button class="action-btn" onclick="resetGame()">🔄 새 게임</button>
+                    </div>
+
+                    <div class="pass-section">
+                        <button class="pass-btn" onclick="passMove()">Pass</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 계가 결과 패널 -->
+            <div class="score-panel" id="scorePanel" style="display:none;">
+                <h2>게임 종료 - 계가 결과</h2>
+                <div class="score-result" id="scoreResult"></div>
+                <button class="action-btn" onclick="resetGame()">새 게임 시작</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/utils.js"></script>
+    <script src="js/game.js"></script>
+    <script src="js/ai.js"></script>
+</body>
+</html>
