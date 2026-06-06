@@ -1,0 +1,305 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.container {
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    padding: 30px;
+    max-width: 900px;
+    width: 100%;
+}
+
+.header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.header h1 {
+    color: #333;
+    font-size: 2.5em;
+    margin-bottom: 10px;
+}
+
+.game-status {
+    font-size: 1.1em;
+    color: #666;
+    padding: 10px;
+    background: #f0f0f0;
+    border-radius: 8px;
+}
+
+/* 게임 시작 패널 */
+.start-panel {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    padding: 40px;
+}
+
+.start-panel h2 {
+    font-size: 1.8em;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.color-btn {
+    width: 200px;
+    padding: 20px;
+    font-size: 1.2em;
+    font-weight: bold;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.color-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.black-btn {
+    background: #333;
+    color: white;
+}
+
+.white-btn {
+    background: #f0f0f0;
+    color: #333;
+    border: 2px solid #333;
+}
+
+/* 게임 컨테이너 */
+.game-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    align-items: start;
+}
+
+.board-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+
+#badukBoard {
+    border: 3px solid #8B4513;
+    background: #DEB887;
+    border-radius: 8px;
+    cursor: crosshair;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.ai-move-display {
+    font-size: 1.1em;
+    font-weight: bold;
+    color: #333;
+    padding: 10px 20px;
+    background: #f0f0f0;
+    border-radius: 8px;
+    width: 100%;
+    text-align: center;
+}
+
+/* 컨트롤 패널 */
+.control-panel {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.info-section {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 15px;
+    background: #f5f5f5;
+    border-radius: 8px;
+}
+
+.turn-info,
+.player-info,
+.score-info {
+    font-size: 1.1em;
+    font-weight: bold;
+    color: #333;
+}
+
+.turn-info {
+    color: #667eea;
+}
+
+/* 피드백 섹션 */
+.feedback-section {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 15px;
+    background: #fff5f5;
+    border-radius: 8px;
+    border: 2px solid #ffe0e0;
+}
+
+.feedback-section label {
+    font-weight: bold;
+    color: #333;
+}
+
+.feedback-btn {
+    padding: 12px;
+    font-size: 1em;
+    font-weight: bold;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.feedback-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+.good-btn {
+    background: #4CAF50;
+    color: white;
+}
+
+.good-btn:hover {
+    background: #45a049;
+}
+
+.bad-btn {
+    background: #f44336;
+    color: white;
+}
+
+.bad-btn:hover {
+    background: #da190b;
+}
+
+/* 액션 섹션 */
+.action-section {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.action-btn {
+    flex: 1;
+    min-width: 150px;
+    padding: 12px;
+    font-size: 1em;
+    font-weight: bold;
+    background: #667eea;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.action-btn:hover {
+    background: #5568d3;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+.resign-btn {
+    background: #f44336;
+}
+
+.resign-btn:hover {
+    background: #da190b;
+}
+
+/* Pass 버튼 */
+.pass-section {
+    display: flex;
+    justify-content: center;
+}
+
+.pass-btn {
+    width: 100%;
+    padding: 12px;
+    font-size: 1em;
+    font-weight: bold;
+    background: #FF9800;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.pass-btn:hover {
+    background: #F57C00;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* 계가 패널 */
+.score-panel {
+    text-align: center;
+    padding: 30px;
+    background: #f5f5f5;
+    border-radius: 8px;
+}
+
+.score-panel h2 {
+    font-size: 1.8em;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.score-result {
+    font-size: 1.3em;
+    font-weight: bold;
+    color: #667eea;
+    margin-bottom: 20px;
+    padding: 20px;
+    background: white;
+    border-radius: 8px;
+    border-left: 5px solid #667eea;
+}
+
+/* 반응형 디자인 */
+@media (max-width: 768px) {
+    .game-container {
+        grid-template-columns: 1fr;
+    }
+
+    .header h1 {
+        font-size: 1.8em;
+    }
+
+    #badukBoard {
+        width: 100%;
+        height: auto;
+    }
+
+    .action-section {
+        flex-direction: column;
+    }
+
+    .action-btn {
+        width: 100%;
+    }
+}
